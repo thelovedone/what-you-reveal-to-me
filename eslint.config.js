@@ -71,6 +71,7 @@ export default [
         File: "readonly",
         FileReader: "readonly",
         XMLHttpRequest: "readonly",
+        URLSearchParams: "readonly",
         FormData: "readonly",
         Headers: "readonly",
         Request: "readonly",

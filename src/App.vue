@@ -20,6 +20,7 @@ import { collectFontData } from "./modules/fingerprint/fonts";
 import { collectWebGLData } from "./modules/fingerprint/webgl";
 import { collectFingerprintData } from "./modules/fingerprint/identity";
 import { collectTorData } from "./modules/privacy/tor";
+import EmailChecker from "./components/EmailChecker.vue";
 
 const clipboardData = ref(null);
 const hardwareData = ref(null);
@@ -79,6 +80,11 @@ function handlePrivacyAction(actionName) {
     <ScorePhilosophyPopup :isOpen="showScorePhilosophy" @close="showScorePhilosophy = false" />
 
     <main class="grid">
+      <!-- Email checker — spans both columns -->
+      <TerminalCard title="NL. EMAIL_CHECKER" id="email-checker" class="full-width">
+        <EmailChecker />
+      </TerminalCard>
+
       <!-- Privacy & Network -->
       <TerminalCard title="0. PRIVACY_MODE">
         <TerminalDataGrid 
@@ -177,6 +183,10 @@ function handlePrivacyAction(actionName) {
 </template>
 
 <style scoped>
+.full-width {
+  grid-column: 1 / -1;
+}
+
 footer {
   padding: var(--spacing-md) 0;
   border-top: 1px solid var(--border);
